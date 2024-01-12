@@ -11,7 +11,25 @@ export default createRouter({
         },
         {
             path: '/hostpital',
-            component: () => import('@/view/hostpital/hostpital.vue')
+            component: () => import('@/view/hostpital/hostpital.vue'),
+            children:[
+                {
+                    path:'register',
+                    component:()=>import('@/view/hostpital/register.vue')
+                },
+                {
+                    path:'register',
+                    component:()=>import('@/view/hostpital/register.vue')
+                },
+                {
+                    path:'register',
+                    component:()=>import('@/view/hostpital/register.vue')
+                },
+                {
+                    path:'register',
+                    component:()=>import('@/view/hostpital/register.vue')
+                }
+            ]
         },
         {
             path: '/',
