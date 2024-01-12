@@ -12,4 +12,4 @@ enum API {
 export const reqHostpital = (page: number, limit: number, hostype = '', districtCode = '') => request.get<any, HospitalResponseData>(API.HOSPITAL_URL + `${page}/${limit}?hostype=${hostype}&districtCode=${districtCode}`)
 export const reqHosLevel = (dictCode: string) => request.get(API.HOSPITAL_LEVEL + `${dictCode}`)
 export const reqHosPosition = (parentId: string) => request.get(API.HOSPITAL_POSITON + `${parentId}`)
-export const reqHosSearch = (hosName: string) => request.get<any,HospitalSearch>(API.HOSPITAL_SEARCH + `${hosname}`)
+export const reqHosSearch = (hosName: string) => request.get<any,HospitalSearch>(API.HOSPITAL_SEARCH + `${hosName}`)
