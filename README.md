@@ -1,8 +1,8 @@
-# Shangyitong
+# 尚医通
 
-This template should help get you started developing with Vue 3 in Vite.
+这个项目是vite与vue3结合的前端项目
 
-## Recommended IDE Setup
+## 编译工具安装
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
@@ -21,19 +21,19 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## 依赖安装
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 工程启动
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### 工程构建
 
 ```sh
 npm run build
