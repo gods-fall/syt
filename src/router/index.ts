@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 //createrouter用于创建路由器实例
 export default createRouter({
     //路由的模式是history 
@@ -10,24 +10,25 @@ export default createRouter({
             component: () => import('@/view/home/home.vue'),
         },
         {
+            //该文件已经推送
             path: '/hostpital',
             component: () => import('@/view/hostpital/hostpital.vue'),
             children:[
                 {
                     path:'register',
-                    component:()=>import('@/view/hostpital/register.vue')
+                    component: () => import('../view/hostpital/register/index.vue')
                 },
                 {
                     path:'register',
-                    component:()=>import('@/view/hostpital/register.vue')
+                    component: () => import('../view/hostpital/register/index.vue')
                 },
                 {
                     path:'register',
-                    component:()=>import('@/view/hostpital/register.vue')
+                    component: () => import('../view/hostpital/register/index.vue')
                 },
                 {
                     path:'register',
-                    component:()=>import('@/view/hostpital/register.vue')
+                    component: () => import('../view/hostpital/register/index.vue')
                 }
             ]
         },
