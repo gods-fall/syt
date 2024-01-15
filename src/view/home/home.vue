@@ -235,19 +235,16 @@
 
 <script setup lang='ts'>
 //引入
-import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
+import {onMounted, ref} from "vue";
+import {useRouter} from "vue-router";
 import carousel from "./carousel/index.vue";
-import { Search } from "@element-plus/icons-vue";
+import {Search} from "@element-plus/icons-vue";
 import level from "./level/index.vue";
 import region from "./region/index.vue";
 import card from "./card/index.vue";
-import { reqHostpital, reqHosSearch } from "../../api/home/index";
-import type {
-  Content,
-  HospitalResponseData,
-  HospitalSearch,
-} from "../../api/home/type";
+import {reqHosSearch, reqHostpital} from "../../api/home/index";
+import type {Content, HospitalResponseData, HospitalSearch,} from "../../api/home/type";
+
 let $router = useRouter();
 //存储医院的数据
 let hasHospitalArr = ref<Content>([]);
@@ -310,7 +307,7 @@ const fetchData = async (ketword: string, cd: any) => {
 //跳转详情页
 const goDetail = (item: any) => {
   //跳转医院详情页,query
-  $router.push({ path: "/hostpital" });
+  $router.push({path: '/hostpital/register', query: {hoscoed: item.hoscode}})
 };
 </script>
 

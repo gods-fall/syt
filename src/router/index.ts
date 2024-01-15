@@ -10,7 +10,7 @@ export default createRouter({
             component: () => import('@/view/home/home.vue'),
         },
         {
-            //该文件已经推送
+
             path: '/hostpital',
             component: () => import('@/view/hostpital/hostpital.vue'),
             children:[
@@ -19,16 +19,20 @@ export default createRouter({
                     component: () => import('../view/hostpital/register/index.vue')
                 },
                 {
-                    path:'register',
-                    component: () => import('../view/hostpital/register/index.vue')
+                    path: 'detail',
+                    component: () => import('../view/hostpital/detail/index.vue')
                 },
                 {
-                    path:'register',
-                    component: () => import('../view/hostpital/register/index.vue')
+                    path: 'notice',
+                    component: () => import('../view/hostpital/notice/index.vue')
                 },
                 {
-                    path:'register',
-                    component: () => import('../view/hostpital/register/index.vue')
+                    path: 'close',
+                    component: () => import('../view/hostpital/close/index.vue')
+                },
+                {
+                    path: 'search',
+                    component: () => import('../view/hostpital/search/index.vue')
                 }
             ]
         },

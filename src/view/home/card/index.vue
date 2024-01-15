@@ -46,6 +46,7 @@
       </div>
       <div class="right">
         <img :src="`data:image/jpeg;base64,${hospital.logoData}`" alt="" />
+
       </div>
     </div>
   </el-card>
@@ -55,10 +56,11 @@
 //接收父组件传递 
 let props =  defineProps(['hospital']);
 import {useRouter} from 'vue-router'
+
 let $router = useRouter();
 const goDetail = ()=>{
-  $router.push({path:'/hostpital'})
-  console.log(props.hospital)
+  $router.push({path: '/hostpital/register', query: {hoscoed: props.hospital.hoscode}})
+  // console.log(props.hospital)
 }
 </script>
 
