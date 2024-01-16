@@ -16,6 +16,7 @@ const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
   }
+
 app.component('HostTop',HostTop)
 app.component('HostBottom',HostBottom)
 app.use(router);

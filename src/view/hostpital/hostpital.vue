@@ -54,7 +54,7 @@ import useDetailStore from '@/store/moudle/hospitalDetail'
 let detailStore = useDetailStore();
 let useroute = useRoute();
 onMounted(() => {
-  detailStore.getHostpital(useroute.query.hoscoed)
+  detailStore.getHostpital(useroute.query.hoscoed as string)
 })
 
 </script>

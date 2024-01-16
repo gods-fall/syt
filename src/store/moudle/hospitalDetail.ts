@@ -5,6 +5,7 @@ import type {DetailState} from './interface/index'
 // 引入详情数据的ts类型
 
 const useDetailStore = defineStore('Detail', {
+
     state: () => {
         return {
             hospitalInfo: ({} as DetailState)
