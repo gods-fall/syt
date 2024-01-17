@@ -10,9 +10,9 @@
         <el-menu
             :default-active="useroute.path"
           class="el-menu-vertical-demo"
-          @open="handleOpen"
-          @close="handleClose"
-            router="true"
+
+
+            @select="changeEl"
         >
           <el-menu-item index="/hostpital/register">
             <el-icon><icon-menu /></el-icon>
@@ -47,14 +47,22 @@
 
 <script setup lang="ts">
 import {Document, HomeFilled, Menu as IconMenu, Search, Setting, Warning} from "@element-plus/icons-vue";
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import {onMounted} from "vue";
 import useDetailStore from '@/store/moudle/hospitalDetail'
 //组件挂载完毕通知pinia仓库发送请求获取详情 存储仓库之中
 let detailStore = useDetailStore();
 let useroute = useRoute();
+let $router = useRouter();
+let code = useroute.query.hoscoed;
+const changeEl = (index: string) => {
+
+  $router.push({path: index, query: {hoscoed: code}})
+}
 onMounted(() => {
-  detailStore.getHostpital(useroute.query.hoscoed as string)
+  detailStore.getHostpital(code as string)
+  detailStore.getHostpitalItem(code as string)
+
 })
 
 </script>

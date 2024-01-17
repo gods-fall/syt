@@ -46,3 +46,19 @@ export interface HospitalDetail {
 export interface hospitalDetail extends ResponseData {
     data: HospitalDetail
 }
+
+//医院科室
+export interface HospitalItem {
+
+    "depcode": string,
+    "depname": string,
+    "children"?: HospitalItem[]
+
+
+}
+
+export type HostpitalItemArr = HospitalItem []
+
+export interface HospitalItemReqData extends ResponseData {
+    data: HospitalItemReqData
+}

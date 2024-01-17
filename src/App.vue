@@ -1,7 +1,8 @@
 <script setup lang="ts">
-  import request from './utils/request'
-  import  {onMounted} from 'vue'
-  onMounted(()=>{
+import request from './utils/request'
+import {onMounted} from 'vue'
+
+onMounted(()=>{
     request.get('/hosp/hospital/1/10').then(res=>{
      
     })
@@ -16,6 +17,7 @@
      <router-view></router-view>
     </div>
     <HostBottom/>
+    <Login/>
   </div>
   
 </template>

@@ -6,7 +6,7 @@ import HostBottom from '@/components/HostBottom/hostBottom.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-
+import Login from '@/components/login/index.vue'
 
 //引入router并安装
 import router from '@/router'
@@ -19,6 +19,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 app.component('HostTop',HostTop)
 app.component('HostBottom',HostBottom)
+app.component('Login', Login)
 app.use(router);
 app.use(ElementPlus, {
   locale: zhCn,

@@ -38,15 +38,55 @@
         </div>
       </div>
     </div>
+    <div class="showItem">
+      <div class="leftNav">
+        <ul>
+          <li v-for="(item,index) in hostDetail.HostpitalItemArr" :key="hostDetail.HostpitalItemArr.depcode"
+              :class="{active:index ==currentIndex}" @click="changeColor(index)">
+            {{ item.depname }}
+
+          </li>
+        </ul>
+      </div>
+      <div class="rightShow">
+        <div v-for="(depart) in hostDetail.HostpitalItemArr" :key="hostDetail.HostpitalItemArr.depcode"
+             class="showDepart">
+          <h1 class="cur">
+            {{ depart.depname }}
+
+          </h1>
+          <!--       展示大科室的小科室-->
+          <ul>
+            <li v-for="(item) in  depart.children"
+                :key="item.depcode">{{ item.depname }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 //引入医院详情pinia的数据
 import useDetailStore from '@/store/moudle/hospitalDetail'
+import {ref} from 'vue'
 
 let hostDetail = useDetailStore();
+//控制高亮
+let currentIndex = ref<number>(0)
+const changeColor = (index: number) => {
 
+  currentIndex.value = index;
+  let title = document.querySelectorAll('.cur')
+  //点击滚动
+  title[currentIndex.value].scrollIntoView({
+    behavior: "smooth",  // 平滑过渡
+    block: "start"    // 上边框与视窗顶部平齐
+  });
+
+
+}
 </script>
 
 <style scoped lang="scss">
@@ -112,6 +152,73 @@ let hostDetail = useDetailStore();
 
       .ruleInfo {
         color: #7f7f7f;
+      }
+    }
+  }
+
+  .showItem {
+    width: 100%;
+    height: 500px;
+
+    display: flex;
+    margin-top: 20px;
+
+    .leftNav {
+      width: 80px;
+      height: 100%;
+
+      ul {
+        width: 100%;
+        height: 100%;
+        background: rgb(248, 248, 248);
+        display: flex;
+        flex-direction: column;
+
+
+        li {
+          cursor: pointer;
+          line-height: 40px;
+          flex: 1;
+          text-align: center;
+          color: #7f7f7f;
+          font-size: 14px;
+
+          &.active {
+            border-left: 1px solid red;
+            color: red;
+            background: #ffffff;
+          }
+
+        }
+      }
+    }
+
+    .rightShow {
+      flex: 1;
+      margin-left: 20px;
+      height: 100%;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .showDepart {
+        h1 {
+          background: rgb(248, 248, 248);
+          color: #7f7f7f;
+        }
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+
+          li {
+            width: 33%;
+            color: #7f7f7f;
+            line-height: 30px;
+          }
+        }
       }
     }
   }
