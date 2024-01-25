@@ -62,3 +62,27 @@ export type HostpitalItemArr = HospitalItem []
 export interface HospitalItemReqData extends ResponseData {
     data: HospitalItemReqData
 }
+
+//验证码
+export interface HospitalMcode {
+
+}
+
+//定义post带参
+export interface reqHospLogin {
+
+    "code": "string",
+
+    "phone": "string"
+
+}
+
+export interface UserInfo {
+    "name": string,
+    "token": string
+}
+
+//登录接口返回的数据
+export interface reqHosLoginData extends ResponseData {
+    data: UserInfo
+}

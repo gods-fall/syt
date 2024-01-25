@@ -57,7 +57,7 @@
           </h1>
           <!--       展示大科室的小科室-->
           <ul>
-            <li v-for="(item) in  depart.children"
+            <li v-for="(item) in  depart.children" @click="login"
                 :key="item.depcode">{{ item.depname }}
             </li>
           </ul>
@@ -70,8 +70,11 @@
 <script setup lang="ts">
 //引入医院详情pinia的数据
 import useDetailStore from '@/store/moudle/hospitalDetail'
-import {ref} from 'vue'
 
+import {ref} from 'vue'
+import useUserStore from '@/store/moudle/user';
+
+let userstore = useUserStore();
 let hostDetail = useDetailStore();
 //控制高亮
 let currentIndex = ref<number>(0)
@@ -86,6 +89,9 @@ const changeColor = (index: number) => {
   });
 
 
+}
+const login = () => {
+  userstore.visiable = !userstore.visiable
 }
 </script>
 
@@ -217,6 +223,10 @@ const changeColor = (index: number) => {
             width: 33%;
             color: #7f7f7f;
             line-height: 30px;
+
+            &:hover {
+              background: rgba(127, 127, 127, 0.25);
+            }
           }
         }
       }

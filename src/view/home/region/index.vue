@@ -22,12 +22,10 @@
 </template>
 
 <script setup lang='ts'>
-import { reqHosLevel } from "../../../api/home/index";
-import { onMounted, ref } from "vue";
-import {
-  HospitalLevelAndRegionResponseData,
-  HosLevelArr,
-} from "../../../api/home/type";
+import {reqHosLevel} from "../../../api/home/index";
+import {onMounted, ref} from "vue";
+import {HosLevelArr, HospitalLevelAndRegionResponseData,} from "../../../api/home/type";
+
 let RegionArr = ref<HosLevelArr>([]);
 onMounted(() => {
   getRegion();
@@ -44,6 +42,9 @@ const changeLevel = (region: string) => {
   $emit('getRegion',region)
 };
 let $emit = defineEmits(['getRegion'])
+// let  j = ref<bigint>(0)
+// j.value = (400007000-300*10e6)/(13.615384615384615*10e6)
+// console.log(j.value)
 </script>
 
 <style scoped lang="scss">

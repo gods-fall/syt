@@ -8,7 +8,21 @@
 
       <div class="right">
         <p class="help">帮助中心</p>
-        <p class="login">登录/注册</p>
+        <p v-if="!userstore.UserInfo.name" class="login" @click="login">登录/注册</p>
+        <el-dropdown v-else>
+    <span class="el-dropdown-link">
+      {{ userstore.UserInfo.name }}<el-icon class="el-icon--right"><arrow-down/></el-icon>
+    </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="a">实名认证</el-dropdown-item>
+              <el-dropdown-item command="b">挂号订单</el-dropdown-item>
+              <el-dropdown-item command="c">就诊管理</el-dropdown-item>
+              <el-dropdown-item command="d" @click="exit">退出登录</el-dropdown-item>
+
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
 
@@ -17,10 +31,26 @@
 
 <script setup lang='ts'>
 import {useRouter} from 'vue-router'
+import useUserStore from '@/store/moudle/user';
+import {ArrowDown} from '@element-plus/icons-vue';
+
+let userstore = useUserStore();
 let $router = useRouter();
   const goHome = ()=>{
     $router.push({path:'/home'})
   }
+const login = () => {
+  userstore.visiable = !userstore.visiable;
+  userstore.code = ''
+
+  }
+
+//退出登录
+const exit = () => {
+  localStorage.removeItem('USERINFO');
+  userstore.logout()
+  $router.push({path: '/home'})
+}
 </script>
 
 <style scoped lang ='scss'>
@@ -65,6 +95,14 @@ let $router = useRouter();
         color: #ccc;
         .help {
           margin-right:10px;
+        }
+
+        .login {
+          cursor: pointer;
+
+          &:hover {
+            color: #7f7f7f;
+          }
         }
       }
     }
